@@ -1,103 +1,187 @@
-import Image from "next/image";
+import { Button } from "@/components/ui/button"
+import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { PlusCircle, Play, FileText, Users, Clock, Target, Trophy } from "lucide-react"
+import Link from "next/link"
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen bg-white">
+      {/* Header */}
+      <header className="border-b border-gray-200 bg-white sticky top-0 z-50">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-2">
+              <div className="w-8 h-8 bg-[#0b55d4] rounded-lg flex items-center justify-center">
+                <FileText className="h-5 w-5 text-white" />
+              </div>
+              <h1 className="text-2xl font-bold text-gray-900">QuizBuilder</h1>
+            </div>
+            <nav className="hidden md:flex items-center space-x-6">
+              <Link href="/create" className="text-gray-600 hover:text-[#0b55d4] transition-colors">
+                Create Quiz
+              </Link>
+              <Link href="/quiz" className="text-gray-600 hover:text-[#0b55d4] transition-colors">
+                Take Quiz
+              </Link>
+              <Link href="/gameshow" className="text-gray-600 hover:text-[#0b55d4] transition-colors">
+                Game Show
+              </Link>
+            </nav>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </header>
+
+      {/* Hero Section */}
+      <section className="py-16 px-4">
+        <div className="container mx-auto text-center">
+          <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+            Build & Take Quizzes
+            <span className="block text-[#0b55d4]">Effortlessly</span>
+          </h2>
+          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            Create interactive quizzes, upload questions from various formats, and take timed assessments with instant
+            feedback. Now with game show mode for competitive fun!
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/create">
+              <Button size="lg" className="bg-[#0b55d4] hover:bg-[#0a4bc2] text-white px-8 py-3">
+                <PlusCircle className="mr-2 h-5 w-5" />
+                Create Quiz
+              </Button>
+            </Link>
+            <Link href="/quiz">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-[#0b55d4] text-[#0b55d4] hover:bg-[#0b55d4] hover:text-white px-8 py-3"
+              >
+                <Play className="mr-2 h-5 w-5" />
+                Take Quiz
+              </Button>
+            </Link>
+            <Link href="/gameshow">
+              <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white px-8 py-3">
+                <Trophy className="mr-2 h-5 w-5" />
+                Game Show Mode
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-16 px-4 bg-gray-50">
+        <div className="container mx-auto">
+          <h3 className="text-3xl font-bold text-center text-gray-900 mb-12">Powerful Features</h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
+              <CardHeader>
+                <div className="w-12 h-12 bg-[#0b55d4] rounded-lg flex items-center justify-center mb-4">
+                  <FileText className="h-6 w-6 text-white" />
+                </div>
+                <CardTitle>Smart Data Extraction</CardTitle>
+                <CardDescription>
+                  Automatically extract key information from invoices, contracts, forms, and any document type with
+                  99.9% accuracy.
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
+              <CardHeader>
+                <div className="w-12 h-12 bg-[#0b55d4] rounded-lg flex items-center justify-center mb-4">
+                  <Clock className="h-6 w-6 text-white" />
+                </div>
+                <CardTitle>Timed Quizzes</CardTitle>
+                <CardDescription>
+                  Set countdown timers for each quiz to create engaging, time-bound assessments.
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
+              <CardHeader>
+                <div className="w-12 h-12 bg-[#0b55d4] rounded-lg flex items-center justify-center mb-4">
+                  <Target className="h-6 w-6 text-white" />
+                </div>
+                <CardTitle>Instant Feedback</CardTitle>
+                <CardDescription>
+                  Get immediate results with correct answers highlighted and detailed explanations.
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
+              <CardHeader>
+                <div className="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mb-4">
+                  <Trophy className="h-6 w-6 text-white" />
+                </div>
+                <CardTitle>Game Show Mode</CardTitle>
+                <CardDescription>
+                  Competitive quiz format where contestants take turns selecting questions by number.
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
+              <CardHeader>
+                <div className="w-12 h-12 bg-[#0b55d4] rounded-lg flex items-center justify-center mb-4">
+                  <Users className="h-6 w-6 text-white" />
+                </div>
+                <CardTitle>Multi-Contestant Support</CardTitle>
+                <CardDescription>
+                  Support up to 8 contestants in game show mode with turn-based question selection.
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
+              <CardHeader>
+                <div className="w-12 h-12 bg-[#0b55d4] rounded-lg flex items-center justify-center mb-4">
+                  <Play className="h-6 w-6 text-white" />
+                </div>
+                <CardTitle>Question Navigation</CardTitle>
+                <CardDescription>
+                  Jump to any question instantly with our intuitive question navigation system.
+                </CardDescription>
+              </CardHeader>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 px-4 bg-[#0b55d4]">
+        <div className="container mx-auto text-center">
+          <h3 className="text-3xl font-bold text-white mb-6">Ready to Get Started?</h3>
+          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            Create your first quiz in minutes, take a practice quiz, or set up a competitive game show with friends!
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/create">
+              <Button size="lg" className="bg-white text-[#0b55d4] hover:bg-gray-100 px-8 py-3">
+                Start Creating
+              </Button>
+            </Link>
+            <Link href="/gameshow">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white text-white hover:bg-white hover:text-[#0b55d4] px-8 py-3"
+              >
+                Try Game Show Mode
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-8 px-4 border-t border-gray-200">
+        <div className="container mx-auto text-center">
+          <p className="text-gray-600">© 2024 QuizBuilder. Built with Next.js and Tailwind CSS.</p>
+        </div>
       </footer>
     </div>
-  );
+  )
 }
