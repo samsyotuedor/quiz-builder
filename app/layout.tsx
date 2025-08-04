@@ -11,7 +11,7 @@ const outfit = Outfit({
 })
 
 export const metadata: Metadata = {
-  title: "quizile App",
+  title: "Quizile App",
   description: "Created with quizile",
   generator: "",
 }
