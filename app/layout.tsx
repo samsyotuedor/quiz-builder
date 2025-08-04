@@ -11,9 +11,9 @@ const outfit = Outfit({
 })
 
 export const metadata: Metadata = {
-  title: "Quizile App",
-  description: "Created with quizile",
-  generator: "",
+  title: "v0 App",
+  description: "Created with v0",
+  generator: "v0.dev",
 }
 
 export default function RootLayout({
